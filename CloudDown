@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Gui para o wget para simplificar downloads com gdrive e demais
+#
+# By Mauricio Ferrari
+#
+################################################################
+
+function down
+{
+    [ -z "$1" ] && return
+    [ -n "$2" ] && arg0=" -O "
+
+    [ "$4" == "TRUE" ] && arg1=" -c"
+    [ "$5" == "TRUE" ] && arg2=" --no-check-certificate"
+
+    terminal="xterm -e"
+    [ "$(which konsole)" ] && {
+        terminal="konsole --separate --hide-menubar --hide-tabbar --noclose -e"
+    } || {
+        [ "$(which xfce4-terminal)" ] && terminal="xfce4-terminal --hide-menubar --hide-toolbar --hide-scrollbar -e"
+    }
+
+    $terminal "wget${arg1}${arg2} -t ${3}${arg0}${2} $1"
+}
+export -f down
+
+yad --form \
+    --no-buttons \
+    --title='CloudDown' \
+    --window-icon='' \
+    --width=400 \
+    --height=450 \
+    --center \
+    --field 'Link(s)':TXT '' \
+    --field ' ':LBL '' \
+    --field 'Name ( -O )' '' \
+    --field ' ':LBL '' \
+    --field 'Tries ( -t )':SCL '20' \
+    --field ' ':LBL '' \
+    --field '-c':CHK TRUE \
+    --field '--no-check-certificate':CHK TRUE \
+    --field ' ':LBL '' \
+    --field='Download':FBTN 'bash -c "down %1 %3 %5 %7 %8"'
