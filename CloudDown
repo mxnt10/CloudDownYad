@@ -30,7 +30,7 @@ export -f down
 
 yad --form \
     --no-buttons \
-    --title='CloudDown' \
+    --title='CloudDown 1.0' \
     --window-icon="$icon" \
     --width=400 \
     --height=450 \
