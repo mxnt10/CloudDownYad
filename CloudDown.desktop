@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CloudDown
+Comment=Gui for wget
+Exec=CloudDown %F
+Icon=CloudDown
+Terminal=false
+Categories=Network;Utility;

@@ -6,6 +6,9 @@
 #
 ################################################################
 
+icon="CloudDown.png"
+[ ! -e "$icon" ] && icon="/usr/share/pixmaps/CloudDown.png"
+
 function down
 {
     [ -z "$1" ] && return
@@ -28,7 +31,7 @@ export -f down
 yad --form \
     --no-buttons \
     --title='CloudDown' \
-    --window-icon='' \
+    --window-icon="$icon" \
     --width=400 \
     --height=450 \
     --center \
