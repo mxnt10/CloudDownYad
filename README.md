@@ -1,4 +1,7 @@
-<h1 align=center><b>CloudDownYad</b></h1>
+<h1 align=center>
+    <b>CloudDownYad</b><br/>
+    <img src="CloudDown.png">
+</h1>
 
 <p align=center>Interface simples feito em YAD para o wget. O objetivo é faciltar downloads de arquivos hospedados em clouds como gdrive, dropbox e demais.
 <br/><br/>
